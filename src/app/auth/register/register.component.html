@@ -4,30 +4,67 @@
             <div class="col-lg-4 mx-auto">
                 <h2 class="text-center mb-4">Registro</h2>
                 <div class="auto-form-wrapper">
-                    <form action="#">
+                    <form autocomplete="off"
+                        [formGroup]="miFormulario"
+                        (ngSubmit)="registrar()"
+                    >
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" class="form-control" placeholder="Correo">
+                                <input type="text"
+                                    class="form-control"
+                                    placeholder="Nombre"
+                                    formControlName="nombre"
+                                >
                                 <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-check-circle"></i>
+                                    <span class="input-group-text"
+                                        [class.text-success]="miFormulario.controls['nombre'].valid"
+                                        [class.text-danger]="!miFormulario.controls['nombre'].valid && miFormulario.controls['nombre'].touched"
+                                    >
+                                    <i [class]="'fa ' + (miFormulario.controls['nombre'].valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input type="email"
+                                    class="form-control"
+                                    placeholder="Correo"
+                                    formControlName="email"
+                                >
                                 <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-check-circle"></i>
+                                    <span class="input-group-text"
+                                        [class.text-success]="miFormulario.controls['email'].valid"
+                                        [class.text-danger]="!miFormulario.controls['email'].valid && miFormulario.controls['email'].touched"
+                                    >
+                                    <i [class]="'fa ' + (miFormulario.controls['email'].valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    formControlName="password"
+                                >
+                                <div class="input-group-append">
+                                    <span class="input-group-text"
+                                        [class.text-success]="miFormulario.controls['password'].valid"
+                                        [class.text-danger]="!miFormulario.controls['password'].valid && miFormulario.controls['password'].touched"
+                                    >
+                                        <i [class]="'fa ' + (miFormulario.controls['password'].valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
                                     </span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary submit-btn btn-block">Crear cuenta</button>
+                            <button type="submit"
+                                class="btn btn-primary submit-btn btn-block"
+                                [disabled]="miFormulario.invalid"
+                            >Crear cuenta</button>
                         </div>
                         <div class="text-block text-center my-3">
                             <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
