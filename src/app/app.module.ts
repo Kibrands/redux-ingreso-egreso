@@ -5,6 +5,11 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { AngularFireModule } from '@angular/fire/compat';
+
+import {StoreModule} from '@ngrx/store'
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducers } from './app.reducer';
 
 import { environment } from '../environments/environment';
 
@@ -17,7 +22,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,9 @@ import { AngularFireModule } from '@angular/fire/compat';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
-    providePerformance(() => getPerformance())
+    providePerformance(() => getPerformance()),
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
