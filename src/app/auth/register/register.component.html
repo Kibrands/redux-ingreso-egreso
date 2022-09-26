@@ -17,10 +17,10 @@
                                 >
                                 <div class="input-group-append">
                                     <span class="input-group-text"
-                                        [class.text-success]="miFormulario.controls['nombre'].valid"
-                                        [class.text-danger]="!miFormulario.controls['nombre'].valid && miFormulario.controls['nombre'].touched"
+                                        [class.text-success]="miFormulario.get('nombre')?.valid"
+                                        [class.text-danger]="!miFormulario.get('nombre')?.valid && miFormulario.get('nombre')?.touched"
                                     >
-                                    <i [class]="'fa ' + (miFormulario.controls['nombre'].valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
+                                        <i [class]="'fa ' + (miFormulario.get('nombre')?.valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
                                     </span>
                                 </div>
                             </div>
@@ -34,10 +34,10 @@
                                 >
                                 <div class="input-group-append">
                                     <span class="input-group-text"
-                                        [class.text-success]="miFormulario.controls['email'].valid"
-                                        [class.text-danger]="!miFormulario.controls['email'].valid && miFormulario.controls['email'].touched"
+                                        [class.text-success]="miFormulario.get('email')?.valid"
+                                        [class.text-danger]="!miFormulario.get('email')?.valid && miFormulario.get('email')?.touched"
                                     >
-                                    <i [class]="'fa ' + (miFormulario.controls['email'].valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
+                                    <i [class]="'fa ' + (miFormulario.get('email')?.valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
                                     </span>
                                 </div>
                             </div>
@@ -51,10 +51,10 @@
                                 >
                                 <div class="input-group-append">
                                     <span class="input-group-text"
-                                        [class.text-success]="miFormulario.controls['password'].valid"
-                                        [class.text-danger]="!miFormulario.controls['password'].valid && miFormulario.controls['password'].touched"
+                                        [class.text-success]="miFormulario.get('password')?.valid"
+                                        [class.text-danger]="!miFormulario.get('password')?.valid && miFormulario.get('password')?.touched"
                                     >
-                                        <i [class]="'fa ' + (miFormulario.controls['password'].valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
+                                        <i [class]="'fa ' + (miFormulario.get('password')?.valid ? 'fa-check-circle' : 'fa-circle-xmark')"></i>
                                     </span>
                                 </div>
                             </div>
